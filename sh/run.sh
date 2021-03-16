@@ -1,15 +1,16 @@
 #!/bin/bash
 
-args=$1
-list=(${args//,/ })
-PPTX_NAME=${list[0]}
-PNG_DIR=${list[1]}
+## Paramaters
+PDF_NAME=$1
+PNG_DIR=$2
 
-echo "PPTX_NAME: "$PPTX_NAME
+## mamin
+
+echo "PDF_NAME: "$PDF_NAME
 echo "PNG_DIR: "$PNG_DIR
 
 gcloud auth activate-service-account --key-file $GOOGLE_APPLICATION_CREDENTIALS
-gsutil cp gs://slide2vr-pptx/${PPTX_NAME} ./slide.pdf
+gsutil cp gs://slide2vr-pptx/${PDF_NAME} ./slide.pdf
 
 pdf2png ./slide.pdf
 
