@@ -27,4 +27,4 @@ USER slide4vr
 WORKDIR /home/slide4vr
 
 ENV PORT=5000
-CMD ["hwrap", "-Dquarkus.http.port=${PORT}", "-Dhwrap.cmd=/usr/bin/run.sh"]
+ENTRYPOINT hwrap -p $PORT /usr/bin/run.sh
